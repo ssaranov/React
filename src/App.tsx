@@ -1,4 +1,5 @@
 import './App.css'
+import Counter from './components/Counter'
 import CourseCard from './components/CourseCard'
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -7,6 +8,7 @@ import SkillsList from './components/SkillsList'
 import StudentCard from './components/StudentCard'
 import TaskCard from './components/TaskCard'
 import TechnologiesList from './components/TechnologiesList'
+import ToDoList from './components/ToDoList'
 
 function App() {
  
@@ -43,6 +45,8 @@ function App() {
       priority={1}
       completed='NotReady'
       />
+      <Counter></Counter>
+      <ToDoList></ToDoList>
       <Footer/>
     </div>
   )
