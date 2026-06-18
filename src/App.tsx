@@ -1,55 +1,55 @@
-import './App.css'
-import Counter from './components/Counter'
-import CourseCard from './components/CourseCard'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import ProjectCard from './components/ProjectCard'
-import SkillsList from './components/SkillsList'
-import StudentCard from './components/StudentCard'
-import TaskCard from './components/TaskCard'
-import TechnologiesList from './components/TechnologiesList'
-import ToDoList from './components/ToDoList'
+import { Link, NavLink, Route, Routes } from "react-router-dom"
+import HomePage from "./Pages/HomePage"
+import TasksPage from "./Pages/TasksPage"
+import NotFoundPage from "./Pages/NotFoundPage"
+import StatisticsPage from "./Pages/StatisticsPage"
+import AboutPage from "./Pages/AboutPage"
+import TaskDetailsPage from "./Pages/TaskDetailsPage"
+import ContactsPage from "./Pages/ContactsPage"
+import HelpPage from "./Pages/HelpPage"
+import ProjectsPage from "./Pages/ProjectsPage"
+import TimerPage from "./Pages/TimerPage"
 
 function App() {
- 
   return (
-    <div className='container mt-4'>
-      <Header></Header>
+    <div className="container mt-4">
+      <header className="mb-4">
+        <h1>Приложение ToDo на React </h1>
 
-      <StudentCard
-        name="Alex"
-        age={18}
-        group='11A'
-        speciality='Физмат'
-        city='Москва'
-      />
-      <CourseCard
-      title='React:Основы'
-      teacher='Я'
-      duration='3ч'
-      />
-      <SkillsList/>
-      <ProjectCard
-      title='Ваш проект'
-      description='Описание'
-      status='Готово'
-      />
-      <TechnologiesList></TechnologiesList>
-      <TaskCard
-      title="Name"
-      priority={1}
-      completed='Ready'
-      />
-      <TaskCard
-      title="Name"
-      priority={1}
-      completed='NotReady'
-      />
-      <Counter></Counter>
-      <ToDoList></ToDoList>
-      <Footer/>
+        <nav className="nav nav-pills">
+          <NavLink className={({isActive}) =>isActive ? "nav-link active" : "nav-link"} to="/">
+          Главная</NavLink>
+           <NavLink className={({isActive}) =>isActive ? "nav-link active" : "nav-link"} to="/tasks">
+          задачи</NavLink>
+           <NavLink className={({isActive}) =>isActive ? "nav-link active" : "nav-link"} to="/statistics">
+          статистика</NavLink>
+           <NavLink className={({isActive}) =>isActive ? "nav-link active" : "nav-link"} to="/contact">
+           Контакты</NavLink>
+           <NavLink className={({isActive}) =>isActive ? "nav-link active" : "nav-link"} to="/help">
+           /help</NavLink>
+           <NavLink className={({isActive}) =>isActive ? "nav-link active" : "nav-link"} to="/project">
+           Проекты</NavLink>
+           <NavLink className={({isActive}) =>isActive ? "nav-link active" : "nav-link"} to="/timer">
+           Таймер</NavLink>
+           <NavLink className={({isActive}) =>isActive ? "nav-link active" : "nav-link"} to="/about">
+           о нас</NavLink>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/" element={<HomePage></HomePage>}></Route>
+        <Route path="/tasks" element={<TasksPage></TasksPage>}></Route>
+        <Route path="/statistics" element={<StatisticsPage></StatisticsPage>}></Route>
+        <Route path="/about" element={<AboutPage></AboutPage>}></Route>
+         <Route path="/tasks/:id" element={<TaskDetailsPage></TaskDetailsPage>}></Route>
+         <Route path="/contact" element={<ContactsPage></ContactsPage>}></Route>
+          <Route path="/help" element={<HelpPage></HelpPage>}></Route>
+          <Route path="/project" element={<ProjectsPage></ProjectsPage>}></Route>
+          <Route path="/project/:id" element={<TaskDetailsPage></TaskDetailsPage>}></Route>
+          <Route path="/timer" element={<TimerPage></TimerPage>}></Route>
+        <Route path="*" element={<NotFoundPage></NotFoundPage>}></Route>
+
+      </Routes>
     </div>
   )
 }
-
 export default App

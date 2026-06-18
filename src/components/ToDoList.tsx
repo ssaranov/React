@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Task {
   id: number;
@@ -133,6 +134,7 @@ function ToDoList() {
               {task.completed ? 'Выполнен' : 'Не выполнен'}
             </span>
             <div>
+              <Link className="btn btn-sm btn-info me-2" to={`/tasks/${task.id}`}>Подробнее</Link>
               <button
                 className="btn btn-warning me-2"
                 onClick={() => toggleCompleted(task.id)}
